@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar color="light">
+  <ion-toolbar color="dark">
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Registro Usuario</ion-card-title>
+      <center><ion-card-title class="titulo">Registro Usuario</ion-card-title></center>
     </ion-card-header>
 
     <ion-card-content>
@@ -20,7 +20,7 @@
 
         <ion-item>
           <ion-label position="floating">Correo..</ion-label>
-          <ion-input type="email" formControlName="correo" ></ion-input>
+          <ion-input type="email" formControlName="correo" pattern="^([a-zA-Z0-9-.]+)@([a-zA-Z0-9-.]+).([a-zA-Z]{2,5})$" requerired></ion-input>
         </ion-item>
 
         <ion-item>
@@ -28,14 +28,9 @@
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Repita Contraseña..</ion-label>
-          <ion-input type="password" formControlName="confirmaPass"></ion-input>
-        </ion-item>
-
        </form>
        <br>
-       <ion-button (click)="CrearUsuario()" expand="block" fill="outline" shape="round">
+       <ion-button (click)="CrearUsuario()" expand="block" fill="outline" shape="round" color="dark" >
          Registrar
        </ion-button>
     </ion-card-content>
@@ -43,7 +38,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="light">
+  <ion-toolbar color="dark">
     <ion-buttons slot="end">
       <ion-button [routerLink] = "['/login']">
         Inicio Sesión

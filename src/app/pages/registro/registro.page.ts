@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../services/registroservice.service';
 import { ToastController } from '@ionic/angular';
-import {
-  FormGroup, FormControl, Validators, FormBuilder
-} from '@angular/forms';
+import  {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -24,8 +22,7 @@ export class RegistroPage implements OnInit {
                 this.formularioRegistro = this.fb.group({
                   'nombre' : new FormControl("", Validators.required), 
                   'correo' : new FormControl("", Validators.required), 
-                  'password': new FormControl("", Validators.required), 
-                  'confirmaPass': new FormControl("", Validators.required)
+                  'password': new FormControl("", Validators.required)
                 })
                }
 
@@ -34,38 +31,48 @@ export class RegistroPage implements OnInit {
 
   async CrearUsuario(){
     var form = this.formularioRegistro.value;
-    if (this.formularioRegistro.invalid){
+    if (this.formularioRegistro.invalid) {
       this.alertError();
     }
     else{
-    this.newUsuario.nomUsuario=form.nombre;
-    this.newUsuario.correoUsuario=form.correo;
-    this.newUsuario.passUsuario = form.password;
-    this.newUsuario.repassUsuario=form.confirmaPass;
-    this.registroService.addUsuario(this.newUsuario).then(dato=>{ 
-      this.newUsuario=<Usuario>{};
-      this.showToast('Usuario Creado!');
-    });
-    this.formularioRegistro.reset();
-  }
-  }//findelmetodo
+            this.newUsuario.nomUsuario=form.nombre;
+            this.newUsuario.correoUsuario=form.correo;
+            this.newUsuario.passUsuario = form.password;
+            this.registroService.addUsuario(this.newUsuario).then(dato=>{ 
+              this.newUsuario=<Usuario>{};
+              this.showToast('Usuario Creado!');
+              
+            });
+              }
+      }
+      async alertError(){
+        const alert = await this.alertController.create({ 
+          header: 'Error..',
+          message: 'Debe completar todos los datos',
+          buttons: ['Aceptar']
+        })
+        await alert.present();
+      }
+      
+      async alertError2(){
+        const alert = await this.alertController.create({ 
+          header: 'Error..',
+          message: 'Formato de correo inválido',
+          buttons: ['Aceptar']
+        })
+        await alert.present();
+      }
+      async showToast(msg){
+        const toast = await this.toast.create({
+          message: msg,
+          duration: 4000
+        })
+        await toast.present();
+      }
+    
+    }
+    
 
-  async alertError(){
-    const alert = await this.alertController.create({ 
-      header: 'Error..',
-      message: 'Debe completar todos los datos',
-      buttons: ['Aceptar']
-    })
-    await alert.present();
-  }
-
-  async showToast(msg){
-    const toast = await this.toast.create({
-      message: msg,
-      duration: 2000
-    })
-    await toast.present();
-  }
+ 
 
 
-}

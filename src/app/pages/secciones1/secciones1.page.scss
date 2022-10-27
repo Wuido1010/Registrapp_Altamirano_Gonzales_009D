@@ -9,7 +9,14 @@
     font-size: x-large;
 }
 .subtitulo{
-    color: gray;
+    color: whitesmoke;
     font-style: inherit;
     font-size: large;
 }
+ion-content::part(background) {
+    background: #99249C;
+  }
+  
+  ion-content::part(scroll) {
+    color: #fff;
+  }

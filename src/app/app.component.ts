@@ -31,26 +31,6 @@ export class AppComponent {
       name: 'Información',
       redirecTo:'/card',
     },
-    {
-      icon: 'walk-outline',
-      name: 'In',
-      redirecTo:'/inputs',
-    },
-    {
-      icon: 'eye-outline',
-      name: 'Noticias',
-      redirecTo:'/noticias',
-    },
-    {
-      icon: 'diamond-outline',
-      name: 'Comentarios',
-      redirecTo:'/comentarios',
-    }, 
-    {
-      icon: 'person-outline',
-      name: 'Mascotas',
-      redirecTo:'/datos',
-    },
   ];
 
 

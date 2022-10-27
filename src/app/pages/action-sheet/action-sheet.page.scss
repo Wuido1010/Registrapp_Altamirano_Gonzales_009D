@@ -11,8 +11,15 @@ ion-content{
 .boton{
     background-color: blueviolet;
     font-style: oblique;
-    font-size: xx-large;
+    font-size: medium;
     font-family: sans-serif;
-    width: 800px;
-    height: 80px;
+    width: 300px;
+    height: 60px;
 }
+ion-content::part(background) {
+    background: #99249C;
+  }
+  
+  ion-content::part(scroll) {
+    color: #fff;
+  }

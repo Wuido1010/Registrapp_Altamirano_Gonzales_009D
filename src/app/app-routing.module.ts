@@ -79,14 +79,6 @@ const routes: Routes = [
     path: 'completado',
     loadChildren: () => import('./pages/completado/completado.module').then( m => m.CompletadoPageModule)
   },
-  {
-    path: 'fotoqr',
-    loadChildren: () => import('./pages/fotoqr/fotoqr.module').then( m => m.FotoqrPageModule)
-  },
-  {
-    path: 'finalizar-asis',
-    loadChildren: () => import('./pages/finalizar-asis/finalizar-asis.module').then( m => m.FinalizarAsisPageModule)
-  },
 ];
 
 @NgModule({

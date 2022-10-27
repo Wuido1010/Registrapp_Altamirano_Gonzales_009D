@@ -1,5 +1,5 @@
 .parrafo{
-    color:white;
+    color:black;
     font-size: large;
     font-style: italic;
     
@@ -9,8 +9,7 @@
     width: 300px;
 }
 .titulo{
-    color:white;
-    text-align: justify;
+    color:black;
     font-size: x-large;
     font-style: italic;
 }
@@ -26,6 +25,11 @@
     color:red;
 }
 
-ion-content{
-    --overflow: hidden;
-}
+
+ion-content::part(background) {
+    background: #99249C;
+  }
+  
+  ion-content::part(scroll) {
+    color: black;
+  }

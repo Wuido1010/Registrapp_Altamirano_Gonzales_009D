@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../services/registroservice.service';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,7 +17,8 @@ export class LoginPage implements OnInit {
   constructor(private alertController: AlertController, 
               private navController: NavController,
               private registroService: RegistroserviceService, 
-              private fb: FormBuilder, private toast : ToastController) { 
+              private fb: FormBuilder,
+              private toast: ToastController) { 
                 this.formularioLogin = this.fb.group({ 
                   'correo' : new FormControl("", Validators.required),
                   'password' : new FormControl ("", Validators.required)                
@@ -41,7 +42,7 @@ export class LoginPage implements OnInit {
           console.log('ingresado');
           localStorage.setItem('ingresado','true');
           this.navController.navigateRoot('inicio');
-          this.showToast('Bienvenido a RegistrAPP Estudiante: '+ obj.nomUsuario);
+          this.showToast('Bienvenido a la version profesor: '+ obj.nomUsuario);
         }
       }//findelfor
       if(a==0){
@@ -62,7 +63,7 @@ export class LoginPage implements OnInit {
   async showToast(msg){
     const toast = await this.toast.create({
       message: msg,
-      duration: 3500
+      duration: 4000
     })
     await toast.present();
   }

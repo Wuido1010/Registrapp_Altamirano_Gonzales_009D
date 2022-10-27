@@ -5,7 +5,6 @@ export interface Usuario{
   nomUsuario: string;
   correoUsuario:string;
   passUsuario:string;
-  repassUsuario: string; 
 }
 
 const USERS_KEY = 'my-usuarios';  
